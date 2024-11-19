@@ -2,13 +2,15 @@ package org.maisprati;
 
 import org.maisprati.singlyLinkedList.browsingHistory.BrowsingHistory;
 import org.maisprati.singlyLinkedList.taskManager.TaskManager;
+import org.maisprati.singlyLinkedList.versionControlSystem.UndoManager;
 
 import java.net.MalformedURLException;
 
 public class Main {
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) throws Exception {
         singlyLinkedListTaskManager();
         singlyLinkedListBrowsingHistory();
+        singlyLinkedListVersionControlSystem();
     }
 
     public static void singlyLinkedListTaskManager(){
@@ -46,6 +48,24 @@ public class Main {
         myBrowsingHistory.addURLToBrowsingHistory("https://github.com/Yasmin-Carloto/Do-Menu-Backend");
 
         myBrowsingHistory.systemOutPrint();
+    }
+
+    public static void singlyLinkedListVersionControlSystem() throws Exception {
+        UndoManager myNote = new UndoManager();
+        myNote.addText("Estou testando colocar palavras.");
+        myNote.addText("Agora estou testando colocar mais palavras.");
+
+        myNote.systemOutPrint();
+        myNote.undoLastModification();
+
+        myNote.systemOutPrint();
+
+        myNote.addText("Vamos quebrar a linha agora.");
+        myNote.breakLine();
+
+        myNote.addText("Quebrou a linha?!");
+
+        myNote.systemOutPrint();
     }
 
     public static void dublyLinkedList(){
