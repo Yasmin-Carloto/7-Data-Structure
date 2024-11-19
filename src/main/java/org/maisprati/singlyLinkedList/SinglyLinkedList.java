@@ -49,6 +49,7 @@ public class SinglyLinkedList<T> {
         if(index == 0) {
             this.head = this.head.getNext();
             this.size--;
+            return;
         }
 
         int count = 0;
