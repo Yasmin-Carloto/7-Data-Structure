@@ -1,5 +1,6 @@
 package org.maisprati;
 
+import org.maisprati.doublyLinkedList.textEditor.TextEditor;
 import org.maisprati.singlyLinkedList.browsingHistory.BrowsingHistory;
 import org.maisprati.singlyLinkedList.taskManager.TaskManager;
 import org.maisprati.singlyLinkedList.versionControlSystem.UndoManager;
@@ -11,6 +12,24 @@ public class Main {
         singlyLinkedListTaskManager();
         singlyLinkedListBrowsingHistory();
         singlyLinkedListVersionControlSystem();
+        doublyLinkedListTextEditor();
+    }
+
+    public static void doublyLinkedListTextEditor() {
+        TextEditor myNotes = new TextEditor();
+        myNotes.addText("Estou testando colocar uma linha aqui.");
+        myNotes.addText("Estou testando colocar outra linha aqui.");
+
+        myNotes.systemOutPrint();
+
+        myNotes.undoLastModification();
+        myNotes.addText("Estou adicionando um outro texto, porque acabei de desfazer a última modificação.");
+
+        myNotes.systemOutPrint();
+
+        myNotes.redoLastModification();
+
+        myNotes.systemOutPrint();
     }
 
     public static void singlyLinkedListTaskManager(){

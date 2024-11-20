@@ -88,7 +88,7 @@ public class SinglyLinkedList<T> {
 
     private Node<T> getLastNode (){
         Node<T> current = this.head;
-        while (current.getNext() != null){
+        while (current != null){
             current = current.getNext();
         }
         return current;
