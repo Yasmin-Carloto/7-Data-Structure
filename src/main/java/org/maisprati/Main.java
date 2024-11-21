@@ -1,5 +1,6 @@
 package org.maisprati;
 
+import org.maisprati.doublyLinkedList.cardsInHand.CardsInHand;
 import org.maisprati.doublyLinkedList.textEditor.TextEditor;
 import org.maisprati.singlyLinkedList.browsingHistory.BrowsingHistory;
 import org.maisprati.singlyLinkedList.taskManager.TaskManager;
@@ -13,9 +14,26 @@ public class Main {
         singlyLinkedListBrowsingHistory();
         singlyLinkedListVersionControlSystem();
         doublyLinkedListTextEditor();
+        doublyLinkedListCardsInHand();
     }
 
-    public static void doublyLinkedListTextEditor() {
+    public static void doublyLinkedListCardsInHand() throws Exception {
+        CardsInHand cardsInLeftHand = new CardsInHand();
+        cardsInLeftHand.addCardToHand(12, "Amarelo");
+        cardsInLeftHand.addCardToHand(13, "Azul");
+        cardsInLeftHand.addCardToHand(14, "Verde");
+        cardsInLeftHand.addCardToHand(15, "Branco");
+
+        cardsInLeftHand.systemOutPrint();
+
+        cardsInLeftHand.removeCard(1);
+        cardsInLeftHand.systemOutPrint();
+
+        cardsInLeftHand.reorganizeCards(0, 2);
+        cardsInLeftHand.systemOutPrint();
+    }
+
+    public static void doublyLinkedListTextEditor() throws Exception {
         TextEditor myNotes = new TextEditor();
         myNotes.addText("Estou testando colocar uma linha aqui.");
         myNotes.addText("Estou testando colocar outra linha aqui.");
@@ -28,6 +46,8 @@ public class Main {
         myNotes.systemOutPrint();
 
         myNotes.redoLastModification();
+        myNotes.breakLine();
+        myNotes.addText("Teste de quebra de linha.");
 
         myNotes.systemOutPrint();
     }

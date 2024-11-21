@@ -39,8 +39,8 @@ public class TextEditor {
             throw new Exception("Must have a text added");
         }
 
-        Text breakLineUndo = new Text(" ");
-        textEditor.add(breakLineUndo);
+        Text breakLine = new Text(" ");
+        textEditor.add(breakLine);
     }
 
     public void systemOutPrint(){
