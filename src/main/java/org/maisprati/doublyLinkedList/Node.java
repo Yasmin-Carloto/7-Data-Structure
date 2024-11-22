@@ -2,14 +2,14 @@ package org.maisprati.doublyLinkedList;
 
 public class Node<T> {
     private T data;
-    private Node next;
-    private Node previous;
+    private Node<T> next;
+    private Node<T> previous;
 
-    public Node getPrevious() {
+    public Node<T> getPrevious() {
         return previous;
     }
 
-    public void setPrevious(Node previous) {
+    public void setPrevious(Node<T> previous) {
         this.previous = previous;
     }
 
@@ -17,7 +17,7 @@ public class Node<T> {
         return next;
     }
 
-    public void setNext(Node next) {
+    public void setNext(Node<T> next) {
         this.next = next;
     }
 

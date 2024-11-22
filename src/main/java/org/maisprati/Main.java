@@ -2,6 +2,10 @@ package org.maisprati;
 
 import org.maisprati.doublyLinkedList.cardsInHand.CardsInHand;
 import org.maisprati.doublyLinkedList.textEditor.TextEditor;
+import org.maisprati.queue.customerServiceSimulator.CustomerServiceSimulator;
+import org.maisprati.queue.printManager.PrintManager;
+import org.maisprati.queue.processQueue.Process;
+import org.maisprati.queue.processQueue.ProcessQueue;
 import org.maisprati.singlyLinkedList.browsingHistory.BrowsingHistory;
 import org.maisprati.singlyLinkedList.taskManager.TaskManager;
 import org.maisprati.singlyLinkedList.versionControlSystem.UndoManager;
@@ -15,6 +19,57 @@ public class Main {
         singlyLinkedListVersionControlSystem();
         doublyLinkedListTextEditor();
         doublyLinkedListCardsInHand();
+        queueCustomerService();
+        queuePrintManager();
+        queueProcessManager();
+    }
+
+    public static void queueProcessManager(){
+        ProcessQueue processQueue = new ProcessQueue();
+        processQueue.add("Rodar api", 3);
+        processQueue.add("Rodar interface", 3);
+        processQueue.add("Vídeo no YouTube", 1);
+
+        processQueue.systemOutPrint();
+
+        processQueue.executeProcess();
+
+        processQueue.systemOutPrint();
+    }
+
+    public static void queuePrintManager(){
+        PrintManager printManager = new PrintManager();
+        printManager.add("Cópia da identidade");
+        printManager.add("Cópia da Certidão de Nascimento");
+        printManager.add("Local de Prova UFC");
+
+        printManager.systemOutPrint();
+
+        printManager.processPrint();
+
+        printManager.systemOutPrint();
+    }
+
+    public static void queueCustomerService(){
+        CustomerServiceSimulator bankQueue = new CustomerServiceSimulator();
+        bankQueue.add("Yasmin Carloto");
+        bankQueue.add("Marcos Daniel");
+        bankQueue.add("Yan Carloto");
+
+        bankQueue.systemOuPrint();
+        bankQueue.serveCustomer();
+
+        bankQueue.systemOuPrint();
+
+        bankQueue.add("Sarah Vika");
+        bankQueue.systemOuPrint();
+
+        bankQueue.serveCustomer();
+        bankQueue.serveCustomer();
+        bankQueue.systemOuPrint();
+
+        bankQueue.serveCustomer();
+        bankQueue.systemOuPrint();
     }
 
     public static void doublyLinkedListCardsInHand() throws Exception {
